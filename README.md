@@ -10,6 +10,8 @@ Instalación
 # Uso
 Para iniciar el servidor, ejecuta python manage.py runserver y navega a http://localhost:8000/ en tu navegador web.
 
+*VIDEO EXPLICATIVO : https://drive.google.com/file/d/1mEdU4f-ttniDKU_W7HwZ4ZYKaXc4YmAh/view?usp=share_link
+
 # Funcionalidades
 * Registro y posterior inicicio de Sesion de usuarios registrados
 * Ver y Editar perfil de usuario logueado
