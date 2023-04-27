@@ -1,2 +1,5 @@
 entrega3_coder
 .DS_Store
+db.sqlite3
+media
+__pycache__

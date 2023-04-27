@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Crear Automovil</h1>
+      <form <form method="POST" enctype="multipart/form-data">        >
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary mt-3">Crear</button>
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver</a>
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card my-4">
+          <div class="card-body">
+            <h1 class="card-title">Acerca de</h1>
+            <hr>
+            <div class="row">
+              <div class="col-md-4">
+                <img class="img-fluid rounded-circle mb-3" src="/static/images/IMG_2950.jpg" alt="Foto de Mauricio Notari">
+              </div>
+              <div class="col-md-8">
+                <h2>Mauricio Notari</h2>
+                <h4>Uruguayo</h4>
+                <p>Trabajo en PedidosYa y en mis tiempos libres disfruto de la aventura haciendo offroad con mi Mitsubishi Montero y amigos.</p>
+              </div>
+            </div>
+            <hr>
+            <p>¡Gracias por visitar mi sitio!</p>
+          </div>
+        </div>
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

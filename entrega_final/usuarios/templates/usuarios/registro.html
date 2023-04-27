@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">Registrarse</h1>
+          {% if form.error %}
+          <div class="alert alert-danger" role="alert">
+            Datos invalidos
+          </div>
+          {% endif %}
+          <form action="{% url 'usuarios:registro' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <table>
+                    {{form}}
+                </table>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

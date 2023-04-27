@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Iniciar sesión</title>
+{% endblock title_head %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">Iniciar sesión</h1>
+          {% if form.error %}
+          <div class="alert alert-danger" role="alert">
+            Credenciales inválidas
+          </div>
+          {% endif %}
+          <form action="{% url 'usuarios:iniciar_sesion' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <table>
+                {{form}}
+              </table>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

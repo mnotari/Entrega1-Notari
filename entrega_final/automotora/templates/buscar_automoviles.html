@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h1 class="text-center mb-4">Buscar Automoviles</h1>
+        <form method="get" class="mb-4">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Buscar por nombre" value="{{ query }}">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </div>
+        </form>
+        {% if Automoviles %}
+          <h2>Resultados para "{{ query }}"</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Anio</th>
+                <th>Precio</th>                
+                <th>Descripcion</th>
+                <th>Fecha Ingreso</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for Automovil in Automoviles %}
+              <tr>
+                <td>{{ Automovil.marca }}</td>
+                <td>{{ Automovil.modelo }}</td>
+                <td>{{ Automovil.anio }}</td>
+                <td>{{ Automovil.precio }}</td>
+                <td>{{ Automovil.descripcion|safe }}</td>
+                <td>{{ Automovil.fecha_ingreso }}</td>
+                <td>
+                  <a href="{% url 'detalle_Automovil' Automovil.id %}" class="btn btn-sm btn-success">Detalles</a>
+                  {% if request.user.is_authenticated %}
+                  <a href="{% url 'editar_Automovil' Automovil.id %}" class="btn btn-sm btn-primary">Editar</a>
+                  <a href="{% url 'eliminar_Automovil' Automovil.id %}" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este Automovil?')">Eliminar</a>
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>No se encontraron resultados para "{{ query }}".</p>
+        {% endif %}
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver</a>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+

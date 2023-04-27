@@ -1,0 +1,52 @@
+{% load static %}
+<!-- Favicon icon -->
+	<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" >
+	<!-- fontawesome icon -->
+	<link rel="stylesheet" href=" {% static 'fonts/fontawesome/css/fontawesome-all.min.css'  %} " >
+	<!-- animation css -->
+	<link rel="stylesheet" href=" {% static 'plugins/animation/css/animate.min.css' %}">
+	<!-- vendor css -->
+	<link rel="stylesheet" href=" {% static 'css/style.css' %}">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">Inventario de Automoviles</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'lista_Automoviles' %}">Lista de Automoviles</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'agregar_Automovil' %}">Agregar Automovil</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'buscar_Automoviles' %}">Buscar Automovil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'acerca_de' %}">Acerca de</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown mr-auto">
+          <a>{{ user.username }} <span class="sr-only">(current)</span></a>
+            <a class="btn btn-primary" href="{% url 'usuarios:ver_perfil' %}">Ver perfil</a>
+            <a class="btn btn-primary" href="{% url 'usuarios:logout' %}">Cerrar sesión</a>
+        </li>
+        {% else %}
+        <li class="nav-item mr-auto">
+          <a class="btn btn-primary" href="{% url 'usuarios:iniciar_sesion' %}">Iniciar sesión</a>
+          <a class="btn btn-primary" href="{% url 'usuarios:registro' %}">Registrarse</a>
+        </li>
+        {% endif %}
+      </ul
+    </div>
+  </div>
+</nav>
+
+  
